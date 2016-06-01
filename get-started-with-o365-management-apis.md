@@ -3,13 +3,13 @@
 
  **Last modified:** April 06, 2016
 
- _ **Applies to:** Office 365_
+ _**Applies to:** Office 365_
 
  **In this article**
-[Overview](#sectionSection0)
-[Application registration in Azure AD](#sectionSection1)
-[Office 365 tenant admin consent](#sectionSection2)
-[Requesting access tokens from Azure AD](#sectionSection3)
+[Overview](#sectionSection0)<br>
+[Application registration in Azure AD](#sectionSection1)<br>
+[Office 365 tenant admin consent](#sectionSection2)<br>
+[Requesting access tokens from Azure AD](#sectionSection3)<br>
 [Building an app](#sectionSection4)
 
 
