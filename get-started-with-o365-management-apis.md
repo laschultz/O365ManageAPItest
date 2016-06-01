@@ -5,7 +5,7 @@
 
  _**Applies to:** Office 365_
 
- **In this article**
+ **In this article**<br>
 [Overview](#sectionSection0)<br>
 [Application registration in Azure AD](#sectionSection1)<br>
 [Office 365 tenant admin consent](#sectionSection2)<br>
