@@ -95,12 +95,10 @@ This operation starts a subscription to the specified content type. If a subscri
 - Remove a webhook.
     
 
-||||
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/start?contentType={ContentType}`||
 |**Parameters**|contentType|Must be a valid content type.|
-|**Body**|webhook|Optional JSON object with three properties:
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b> : Required HTTPS endpoint that can receive notifications.  A test message will be sent to the webhook to validate the webhook before creating the subscription.</p></li><li><p><b>authId</b> : Optional string that will be included as the WebHook-AuthID header in notifications sent to the webhook as a means of identifying and authorizing the source of the request to the webhook.</p></li><li><p><b>expiration</b> : Optional datetime that indicates a datetime after which notifications should no longer be sent to the webhook.</p></li></ul>|
+|**Body**|webhook|Optional JSON object with three properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b> : Required HTTPS endpoint that can receive notifications.  A test message will be sent to the webhook to validate the webhook before creating the subscription.</p></li><li><p><b>authId</b> : Optional string that will be included as the WebHook-AuthID header in notifications sent to the webhook as a means of identifying and authorizing the source of the request to the webhook.</p></li><li><p><b>expiration</b> : Optional datetime that indicates a datetime after which notifications should no longer be sent to the webhook.</p></li></ul>|
 |**Response**|contentType|The content type specified in the call.|
 ||status|The status of the subscription. If a subscription is disabled, you will not be able to list or retrieve content.|
 ||webhook|The webhook properties specified in the call together with the status of the webhook. If the webhook is disabled, you will not receive notification, but you will still be able to list and retrieve content, provided the subscription is enabled.|
