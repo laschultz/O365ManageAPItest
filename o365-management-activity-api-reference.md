@@ -3,6 +3,8 @@
 Use the Office 365 Management Activity API to retrieve information about user, admin, system, and policy actions and events from Office 365 and Azure AD activity logs. 
 
  **Last modified:** May 13, 2016
+ 
+ _**Applies to: Office 365**_
 
  **In this article**<br>
 [Working with the Office 365 Management Activity API](#sectionSection0)<br>
