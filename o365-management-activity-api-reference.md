@@ -4,9 +4,9 @@ Use the Office 365 Management Activity API to retrieve information about user, a
 
  **Last modified:** May 13, 2016
 
- **In this article**
-[Working with the Office 365 Management Activity API](#sectionSection0)
-[Activity API operations](#sectionSection1)
+ **In this article**<br>
+[Working with the Office 365 Management Activity API](#sectionSection0)<br>
+[Activity API operations](#sectionSection1)<br>
 [Errors](#sectionSection2)
 
 
