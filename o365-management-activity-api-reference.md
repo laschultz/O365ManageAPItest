@@ -94,7 +94,7 @@ This operation starts a subscription to the specified content type. If a subscri
     
 - Remove a webhook.
     
-
+||||
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/start?contentType={ContentType}`||
 |**Parameters**|contentType|Must be a valid content type.|
