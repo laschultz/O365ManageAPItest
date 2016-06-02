@@ -2,7 +2,7 @@
 # Office 365 Management APIs overview
 
 
- **Last modified:** January 26, 2016
+ **Last modified:** June 2, 2016
 
  _**Applies to:** Office 365_
 
