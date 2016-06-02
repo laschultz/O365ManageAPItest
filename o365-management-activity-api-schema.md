@@ -5,7 +5,7 @@
  **Last modified:** June 2, 2016
  
  _**Applies to: Office 365**_
-
+ 
  **In this article**<br>
 [Office 365 Management API schemas](#top)<br>
 [Common Schema](#common)<br>
@@ -75,7 +75,7 @@ EntityType Name: AuditRecord
 |UserType|Self.[User Type](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#UserType)|Yes|The type of user that performed the operation. See the [User Type](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#UserType) table for details on the types of users.|
 |UserKey|Edm.String|Yes|An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID (PUID) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts.|
 |Workload|Edm.String|No|The Office 365 service where the activity occurred in the Workload string. The possible values for this property are:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Exchange</p></li><li><p>SharePoint</p></li><li><p>OneDrive for Business</p></li><li><p>Azure Active Directory</p></li></ul>|
-|ResultStatus|Edm.String|No|Indicates whether the action (specified in the Operation property) was successful or not. Possible values are  **Succeeded**, **PartiallySucceded**, or ** Failed**.For Exchange admin activity, the value is either  **True** or **False**.|
+|ResultStatus|Edm.String|No|Indicates whether the action (specified in the Operation property) was successful or not. Possible values are  **Succeeded**, **PartiallySucceded**, or **Failed**. For Exchange admin activity, the value is either  **True** or **False**.|
 |ObjectId|Edm.string|No|For SharePoint and OneDrive for Business activity, the full path name of the file or folder accessed by the user.For Exchange admin audit logging, the name of the object that was modified by the cmdlet.|
 |UserId|Edm.string|Yes|The UPN (User Principal Name) of the user who performed the action (specified in the Operation property) that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NT AUTHORITY\SYSTEM) are also included.|
 |ClientIp|Edm.String|No|The IP address of the device that was used when the activity was logged. The IP address is displayed in either an IPv4 or IPv6 address format.|
