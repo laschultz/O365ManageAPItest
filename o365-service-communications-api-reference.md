@@ -1,9 +1,9 @@
 
 # Office 365 Service Communications API reference (preview)
 
- **Last modified:** September 09, 2015
+ **Last modified:** June 2, 2016
 
- _ **Applies to:** Office 365_
+ _**Applies to:** Office 365_
 
  **Note**  This documentation covers features that are currently in preview. For information about working with preview features, see [Preview developer features on the Office 365 platform](https://msdn.microsoft.com/en-us/office/office365/howto/platform-development-preview-features-overview).
 
