@@ -354,8 +354,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 
  **Note**  * This operation is in Preview.
 
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ## SharePoint File Operations
 <a name="SPFileOperations"> </a>
@@ -375,7 +373,6 @@ The file-related SharePoint events listed in the "File and folder activities" se
 |DestinationFileExtension|Edm.String|No|The file extension of a file that is copied or moved. This property is displayed only for FileCopied and FileMoved events.|
 |UserSharedWith|Edm.String|No|The user that a resource was shared with.|
 |SharingType|Edm.String|No|The type of sharing permissions that were assigned to the user that the resource was shared with. This user is identified by the  _UserSharedWith_ parameter.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## SharePoint Sharing Schema
