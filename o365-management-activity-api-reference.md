@@ -96,7 +96,7 @@ This operation starts a subscription to the specified content type. If a subscri
     
 - Remove a webhook.
     
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/start?contentType={ContentType}`||
 |**Parameters**|contentType|Must be a valid content type.|
@@ -191,7 +191,7 @@ This operation stops a subscription to the specified content type.
 When a subscription is stopped, you will no longer receive notifications and you will not be able to retrieve available content. If the subscription is later restarted, you will have access to new content from that point forward. You will not be able to retrieve content that was available between the time the subscription was stopped and restarted.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/stop?contentType={ContentType}`||
 |**Parameters**|contentType|Must be a valid content type.|
@@ -224,7 +224,7 @@ HTTP/1.1 200 OK
 This operation returns a collection of the current subscriptions together with the associated webhooks.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/list`||
 |**Parameters**|(none)||
@@ -279,7 +279,7 @@ Content-Type: application/json; charset=utf-8
 This operation lists the content currently available for retrieval for the specified content type. The content is an aggregation of actions and events harvested from multiple servers across multiple datacenters. The content will be listed in the order in which the aggregations become available, but the events and actions within the aggregations are not guaranteed to be sequential. An error is returned if the subscription status is disabled.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/content?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**Parameters**|contentType|Must be a valid content type.|
@@ -510,7 +510,7 @@ Content-Type: application/json; charset=utf-8
 This operation lists all notification attempts for the specified content type. If you did not include a webhook when starting the subscription to the content type, there will be no notifications to retrieve. Because we retry notifications in the event of failure, this operation can return multiple notifications for the same content, and the order in which the notifications are sent will not necessarily match the order in which the content became available (especially when there are failures and retries). You can use this operation to help investigate issues related to webhooks and notifications, but you should not use it to determine what content is currently available for retrieval. Use the /content operation instead. We return an error if the subscription status is disabled.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/notifications?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**Parameters**|contentType|Must be a valid content type.|
