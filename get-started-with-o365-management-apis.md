@@ -1,7 +1,7 @@
 
 # Get started with Office 365 Management APIs
 
- **Last modified:** April 06, 2016
+ **Last modified:** June 2, 2016
 
  _**Applies to:** Office 365_
 
