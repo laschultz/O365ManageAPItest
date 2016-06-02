@@ -4,7 +4,7 @@
 
  **Last modified:** June 2, 2016
  
- _**Applies to: Office 365**_
+ _**Applies to:** Office 365_
  
  **In this article**<br>
 [Office 365 Management API schemas](#top)<br>
