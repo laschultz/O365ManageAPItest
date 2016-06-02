@@ -479,7 +479,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 ### Errors
 <a name="GetMessages"> </a>
 
-When the service encounters an error, it reports the error response code to the caller, using standard HTTP error-code syntax. As per [OData V4 specification](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.mdl), additional information is included in the body of the failed call as a single JSON object. The following is an example of a full JSON error body:
+When the service encounters an error, it reports the error response code to the caller, using standard HTTP error-code syntax. As per [OData V4 specification](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html), additional information is included in the body of the failed call as a single JSON object. The following is an example of a full JSON error body:
 
 
 ```
