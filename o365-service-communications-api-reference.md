@@ -82,7 +82,7 @@ These are the response headers returned for all Office 365 Service Communication
 Returns the list of subscribed services.
 
 
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/Services`||
 |**Query-option**|$select|Pick a subset of properties.|
@@ -146,8 +146,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 Returns the current status of the service.
 
-
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/CurrentStatus`||
 |**Filter**|Workload|Filter by workload (String, default: all).|
@@ -279,8 +278,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 Returns the historical status of the service, by day, over a certain time range.
 
-
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/HistoricalStatus`||
 |**Filters**|Workload|Filter by workload (String, default: all).|
@@ -391,8 +389,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 Returns the messages about the service over a certain time range. Use the type filter to filter for "Service Incident", "Planned Maintenance", or "Message Center" messages.
 
-
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/Messages`||
 |**Filters**|Workload|Filter by workload (String, default: all).|
