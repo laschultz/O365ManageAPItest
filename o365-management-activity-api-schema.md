@@ -79,8 +79,6 @@ EntityType Name: AuditRecord
 |ObjectId|Edm.string|No|For SharePoint and OneDrive for Business activity, the full path name of the file or folder accessed by the user.For Exchange admin audit logging, the name of the object that was modified by the cmdlet.|
 |UserId|Edm.string|Yes|The UPN (User Principal Name) of the user who performed the action (specified in the Operation property) that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NT AUTHORITY\SYSTEM) are also included.|
 |ClientIp|Edm.String|No|The IP address of the device that was used when the activity was logged. The IP address is displayed in either an IPv4 or IPv6 address format.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ### Enum: AuditLogRecordType - Type: Edm.Int32
 <a name="AuditLogRecordType"> </a>
@@ -101,8 +99,6 @@ EntityType Name: AuditRecord
 |12|Sway|Events from the Sway service and clients.|
 |14|SharePointSharingOperation|SharePoint sharing events.|
 |15|AzureActiveDirectoryStsLogon|Secure Token Service (STS) logon events in Azure Active Directory.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ### Enum: User Type - Type: Edm.Int32
 <a name="UserType"> </a>
@@ -140,7 +136,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |SwayLookupId|Edm.String|No|The Sway ID. |
 |SiteUrl|Edm.String|No|The URL for the Sway.|
 |OperationResult|Self.OperationResult|No|Either success or fail.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### Enum: ObjectType - Type Edm.Int32
@@ -153,8 +148,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |0|Sway|The event was triggered from a Sway.|
 |1|SwayEmbedded|The event was triggered from a Sway, which is embedded in a host.|
 |2|SwayAdminPortal|The event was triggered from Sway service settings in Office 365 admin portal.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ### Enum: OperationResult - Type Edm.Int32
 <a name="OperationResult"> </a>
@@ -165,8 +158,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |:-----|:-----|:-----|
 |0|Succeeded|The event was successful.|
 |1|Failed|The event failed.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ### Enum: Endpoint - Type Edm.Int32
 <a name="Endpoint"> </a>
