@@ -117,8 +117,6 @@ EntityType Name: AuditRecord
 
  **Note**  Only Exchange operations include a user type. SharePoint operations don't specify a user type. 
 
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ## Sway Schema
 <a name="sway"> </a>
@@ -170,7 +168,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |1|SwayIOS|The event was triggered using the iOS client of Sway.|
 |2|SwayWindows|The event was triggered using the Windows client of Sway.|
 |3|SwayAndroid|The event was triggered using the Android client of Sway.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### Enum: DeviceType - Type Edm.Int32
@@ -183,7 +180,7 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |0|Desktop|The event was triggered using the desktop.|
 |1|Mobile|The event was triggered using a mobile device.|
 |2|Tablet|The event was triggered using a tablet device.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
+
 
 
 ### Enum: SwayAuditOperation - Type Edm.Int32
@@ -207,8 +204,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |13|ServiceOff|The user disables Sway for the entire organization via the Office 365 admin center (off by default).|
 |14|ExternalSharingOn|The user enables external sharing for the entire organization via the Office 365 admin center.|
 |15|ExternalSharingOff|The user disables external sharing for the entire organization via the Office 365 admin center.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ## SharePoint Base Schema
 <a name="spbase"> </a>
@@ -224,8 +219,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |UserAgent|Edm.String|No|Information about the user's client or browser. This information is provided by the client or browser.|
 |MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Information about device sync operations. This information is reported only if it's present in the request.|
 |MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Information about device sync operations. This information is reported only if it's present in the request.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ### Enum: ItemType - Type: Edm.Int32
 <a name="ItemType"> </a>
@@ -251,8 +244,6 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |:-----|:-----|:-----|
 |0|SharePoint|The event source is SharePoint.|
 |1|ObjectModel|The event source is ObjectModel.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ### Enum: SharePointAuditOperation - Type: Edm.Int32
 <a name="SharePointAuditOperations"> </a>
@@ -380,8 +371,6 @@ The file-related SharePoint events listed in the "File and folder activities" se
 |TargetUserOrGroupName |Edm.String|No|Stores the UPN or name of the target user or group that a resource was shared with.|
 |TargetUserOrGroupType|Edm.String|No|Identifies whether the target user or group is a Member, Guest, Group, or Partner. |
 |EventData|XML code|No|Conveys follow-up information about the sharing action that has occurred, such as adding a user to a group or granting edit permissions.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ## SharePoint Schema
 <a name="sp"> </a>
@@ -395,8 +384,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |CustomEvent|Edm.String|No|Optional string for custom events.|
 |EventData|Edm.String|No|Optional payload for custom events.|
 |ModifiedProperties|Collection(ModifiedProperty)|No|The property is included for admin events, such as adding a user as a member of a site or a site collection admin group. The property includes the name of the property that was modified (for example, the Site Admin group), the new value of the modified property (such the user who was added as a site admin), and the previous value of the modified object.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
-
 
 ## Exchange Admin Schema
 <a name="ExchangeAdminSchema"> </a>
@@ -411,7 +398,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ExternalAccess|Edm.Boolean|Yes|Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value  **False** indicates that the cmdlet was run by someone in your organization. The value **True** indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator.|
 |OriginatingServer|Edm.String|No|The name of the server from which the cmdlet was executed.|
 |OrganizationName|Edm.String|No|The name of the tenant.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## Exchange Mailbox Schema
@@ -437,7 +423,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ClientMachineName|Edm.String|No|The machine name that hosts the Outlook client.|
 |ClientProcessName|Edm.String|No|The email client that was used to access the mailbox. |
 |ClientVersion|Edm.String|No|The version of the email client .|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### Enum: LogonType - Type: Edm.Int32
@@ -454,7 +439,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |4|SystemService|A service account in the Microsoft datacenter|
 |5|BestAccess|Reserved for internal use.|
 |6|DelegatedAdmin|A delegated administrator.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### ExchangeMailboxAuditGroupRecord schema
@@ -473,7 +457,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |DestFolder|Self.[ExchangeFolder](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#ExchangeFolderType)|No|The destination folder, for operations such as Move.|
 |Folders|Collection(Self.[ExchangeFolder](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#ExchangeFolderType))|No|Information about the source folders involved in an operation; for example, if folders are selected and then deleted.|
 |AffectedItems|Collection(Self.[ExchangeItem](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#ExchangeItemType))|No|Information about each item in the group.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### ExchangeMailboxAuditRecord schema
@@ -489,7 +472,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |SendAsUserMailboxGuid|Edm.Guid|No|The Exchange GUID of the mailbox that was accessed to send email as.|
 |SendOnBehalfOfUserSmtp|Edm.String|No|SMTP address of the user on whose behalf the email is sent.|
 |SendonBehalfOfUserMailboxGuid|Edm.Guid|No|The Exchange GUID of the mailbox that was accessed to send mail on behalf of.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### ExchangeItem complex type
@@ -513,7 +495,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |:-----|:-----|:-----|:-----|
 |Id|Edm.String|Yes|The store ID of the folder object.|
 |Path|Edm.String|No|The name of the mailbox folder where the message that was accessed is located.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## Azure Active Directory Base Schema
@@ -548,7 +529,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |Client|Edm.String|No|Details about the client device, device OS, and device browser that was used for the of the account login event.|
 |LoginStatus|Edm.Int32|Yes|This property is from OrgIdLogon.LoginStatus directly. The mapping of various interesting logon failures could be done by alerting algorithms.|
 |UserDomain|Edm.String|Yes|The Tenant Identity Information (TII).|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### Enum: CredentialType - Type: Edm.Int32
@@ -578,7 +558,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |1|InitialAuth|Login with initial authentication|
 |2|CookieCopy|Login with cookie.|
 |3|SilentReAuth|Login with silent re-authentication.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ### Enum: AuthenticationMethod - Type: Edm.Int32
@@ -607,7 +586,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |17|SAML20PostSimpleSign|The authentication method is a SAML20PostSimpleSign.|
 |18|SAML20Post|The authentication method is a SAML20Post.|
 |19|OneTimeCode|The authentication method is a one-time code.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## Azure Active Directory Schema
@@ -625,7 +603,7 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |SupportTicketId|Edm.String|No|The customer support ticket ID for the action in "act-on-behalf-of" situations.|
 |Target|Collection(Self.[IdentityTypeValuePair](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#IdentityTypeValuePair))|No|The user that the action (identified by the Operation property) was performed on.|
 |TargetContextId|Edm.String|No|The GUID of the organization that the targeted user belongs to.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
+
 
 
 ### Complex Type: IdentityTypeValuePair
@@ -651,7 +629,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |PUID|The audit action actor or the target passport unique ID (PUID).|
 |SPN|The identity of a service principal if the action is performed by the Office 365 service.|
 |UPN|The user principal name.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## Azure Active Directory STS Logon Schema
@@ -664,7 +641,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ApplicationId|Edm.String|No|The GUID that represents the application that is requesting the login. The display name can be looked up via the Azure Active Directory Graph API.|
 |Client|Edm.String|No|Client device information, provided by the browser performing the login.|
 |LogonError|Edm.String|No|For failed logins, contains the reason why the login failed.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## Data Center Security Base Schema
@@ -684,7 +660,6 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |**Member name**|**Description**|
 |:-----|:-----|
 |DataCenterSecurityCmdletAuditEvent|This is the enum value for cmdlet audit type event.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
 
 
 ## Data Center Security Cmdlet Schema
