@@ -121,7 +121,7 @@ EntityType Name: AuditRecord
 ## Sway Schema
 <a name="sway"> </a>
 
-The Sway events listed in[Search the audit log in the Office 365 Protection Center](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluding the file and folder events) use this schema.
+The Sway events listed in [Search the audit log in the Office 365 Protection Center](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluding the file and folder events) use this schema.
 
 
 
