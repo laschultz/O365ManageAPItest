@@ -678,5 +678,5 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ElevationRole|Edm.String|No|The role the elevation was requested for.|
 |ElevationDuration|Edm.Int32|Yes|The duration for which the elevation was active.|
 |GenericInfo|Edm.String|No|Used for comments and other generic information.|
-[Return to top](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#top)
+
 
