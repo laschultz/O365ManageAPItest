@@ -2,23 +2,25 @@
 # Office 365 Management Activity API schema
 
 
- **Last modified:** May 26, 2016
-
- **In this article**
-[Office 365 Management API schemas](#top)
-[Common Schema](#common)
-[Sway Schema](#sway)
-[SharePoint Base Schema](#spbase)
-[SharePoint File Operations](#SPFileOperations)
-[SharePoint Sharing Schema](#SPShare)
-[SharePoint Schema](#sp)
-[Exchange Admin Schema](#ExchangeAdminSchema)
-[Exchange Mailbox Schema](#ExchangeMailboxSchema)
-[Azure Active Directory Base Schema](#AzureActiveDirectoryBaseSchema)
-[Azure Active Directory Account Logon Schema](#AzureActiveDirectoryAccountLogonSchema)
-[Azure Active Directory Schema](#AzureActiveDirectorySchema)
-[Azure Active Directory STS Logon Schema](#AzureActiveDirectorySTSSchema)
-[Data Center Security Base Schema](#DataCenterSecurityBaseSchema)
+ **Last modified:** June 2, 2016
+ 
+ _**Applies to:** Office 365_
+ 
+ **In this article**<br>
+[Office 365 Management API schemas](#top)<br>
+[Common Schema](#common)<br>
+[Sway Schema](#sway)<br>
+[SharePoint Base Schema](#spbase)<br>
+[SharePoint File Operations](#SPFileOperations)<br>
+[SharePoint Sharing Schema](#SPShare)<br>
+[SharePoint Schema](#sp)<br>
+[Exchange Admin Schema](#ExchangeAdminSchema)<br>
+[Exchange Mailbox Schema](#ExchangeMailboxSchema)<br>
+[Azure Active Directory Base Schema](#AzureActiveDirectoryBaseSchema)<br>
+[Azure Active Directory Account Logon Schema](#AzureActiveDirectoryAccountLogonSchema)<br>
+[Azure Active Directory Schema](#AzureActiveDirectorySchema)<br>
+[Azure Active Directory STS Logon Schema](#AzureActiveDirectorySTSSchema)<br>
+[Data Center Security Base Schema](#DataCenterSecurityBaseSchema)<br>
 [Data Center Security Cmdlet Schema](#DataCenterSecurityCmdletSchema)
 
 
@@ -72,14 +74,16 @@ EntityType Name: AuditRecord
 |OrganizationId|Edm.Guid|Yes|The GUID for your organization's Office 365 service where the event occurred. For example, an event in SharePoint event will have a different OrganizationId than an event in Exchange. The service that the event occurs in is identified by the EventSource property.|
 |UserType|Self.[User Type](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#UserType)|Yes|The type of user that performed the operation. See the [User Type](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#UserType) table for details on the types of users.|
 |UserKey|Edm.String|Yes|An alternative ID for the user identified in the UserId property. For example, this property is populated with the passport unique ID (PUID) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts.|
-|Workload|Edm.String|No|The Office 365 service where the activity occurred in the Workload string. The possible values for this property are:
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Exchange</p></li><li><p>SharePoint</p></li><li><p>OneDrive for Business</p></li><li><p>Azure Active Directory</p></li></ul>|
-|ResultStatus|Edm.String|No|Indicates whether the action (specified in the Operation property) was successful or not. Possible values are  **Succeeded**, **PartiallySucceded**, or ** Failed**.For Exchange admin activity, the value is either  **True** or **False**.|
+|Workload|Edm.String|No|The Office 365 service where the activity occurred in the Workload string. The possible values for this property are:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Exchange</p></li><li><p>SharePoint</p></li><li><p>OneDrive for Business</p></li><li><p>Azure Active Directory</p></li></ul>|
+|ResultStatus|Edm.String|No|Indicates whether the action (specified in the Operation property) was successful or not. Possible values are  **Succeeded**, **PartiallySucceded**, or **Failed**. For Exchange admin activity, the value is either  **True** or **False**.|
 |ObjectId|Edm.string|No|For SharePoint and OneDrive for Business activity, the full path name of the file or folder accessed by the user.For Exchange admin audit logging, the name of the object that was modified by the cmdlet.|
 |UserId|Edm.string|Yes|The UPN (User Principal Name) of the user who performed the action (specified in the Operation property) that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NT AUTHORITY\SYSTEM) are also included.|
 |ClientIp|Edm.String|No|The IP address of the device that was used when the activity was logged. The IP address is displayed in either an IPv4 or IPv6 address format.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ### Enum: AuditLogRecordType - Type: Edm.Int32
 <a name="AuditLogRecordType"> </a>
@@ -100,8 +104,11 @@ EntityType Name: AuditRecord
 |12|Sway|Events from the Sway service and clients.|
 |14|SharePointSharingOperation|SharePoint sharing events.|
 |15|AzureActiveDirectoryStsLogon|Secure Token Service (STS) logon events in Azure Active Directory.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ### Enum: User Type - Type: Edm.Int32
 <a name="UserType"> </a>
@@ -120,27 +127,32 @@ EntityType Name: AuditRecord
 
  **Note**  Only Exchange operations include a user type. SharePoint operations don't specify a user type. 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ## Sway Schema
 <a name="sway"> </a>
 
-The Sway events listed in[Search the audit log in the Office 365 Protection Center](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluding the file and folder events) use this schema.
+The Sway events listed in [Search the audit log in the Office 365 Protection Center](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&amp;rs=en-US&amp;ad=US) (excluding the file and folder events) use this schema.
 
 
 
 |**Parameter**|**Type**|**Mandatory?**|**Description**|
 |:-----|:-----|:-----|:-----|
-|ObjectType|Self.ObjectType|No|The access point for the triggered event. Access points include: 
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>A Sway</p></li><li><p>A Sway that is embedded within a host</p></li><li><p>Sway settings within the Office 365 admin portal</p></li></ul>|
+|ObjectType|Self.ObjectType|No|The access point for the triggered event. Access points include: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>A Sway</p></li><li><p>A Sway that is embedded within a host</p></li><li><p>Sway settings within the Office 365 admin portal</p></li></ul>|
 |Endpoint|Self.Endpoint|No|The Sway client endpoint for the triggered event. The Sway client endpoint can be web, iOS, Windows, or Android. |
 |BrowserName|Edm.String|No|The browser used to access Sway for the triggered event. |
 |DeviceType|Self.DeviceType|No|The device type used to access Sway for the triggered event. The device type can be desktop, mobile, or tablet.|
 |SwayLookupId|Edm.String|No|The Sway ID. |
 |SiteUrl|Edm.String|No|The URL for the Sway.|
 |OperationResult|Self.OperationResult|No|Either success or fail.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### Enum: ObjectType - Type Edm.Int32
@@ -153,8 +165,11 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |0|Sway|The event was triggered from a Sway.|
 |1|SwayEmbedded|The event was triggered from a Sway, which is embedded in a host.|
 |2|SwayAdminPortal|The event was triggered from Sway service settings in Office 365 admin portal.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ### Enum: OperationResult - Type Edm.Int32
 <a name="OperationResult"> </a>
@@ -165,8 +180,11 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |:-----|:-----|:-----|
 |0|Succeeded|The event was successful.|
 |1|Failed|The event failed.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ### Enum: Endpoint - Type Edm.Int32
 <a name="Endpoint"> </a>
@@ -179,7 +197,10 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |1|SwayIOS|The event was triggered using the iOS client of Sway.|
 |2|SwayWindows|The event was triggered using the Windows client of Sway.|
 |3|SwayAndroid|The event was triggered using the Android client of Sway.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### Enum: DeviceType - Type Edm.Int32
@@ -216,8 +237,11 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |13|ServiceOff|The user disables Sway for the entire organization via the Office 365 admin center (off by default).|
 |14|ExternalSharingOn|The user enables external sharing for the entire organization via the Office 365 admin center.|
 |15|ExternalSharingOff|The user disables external sharing for the entire organization via the Office 365 admin center.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ## SharePoint Base Schema
 <a name="spbase"> </a>
@@ -233,8 +257,11 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |UserAgent|Edm.String|No|Information about the user's client or browser. This information is provided by the client or browser.|
 |MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Information about device sync operations. This information is reported only if it's present in the request.|
 |MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Information about device sync operations. This information is reported only if it's present in the request.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ### Enum: ItemType - Type: Edm.Int32
 <a name="ItemType"> </a>
@@ -260,8 +287,11 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 |:-----|:-----|:-----|
 |0|SharePoint|The event source is SharePoint.|
 |1|ObjectModel|The event source is ObjectModel.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ### Enum: SharePointAuditOperation - Type: Edm.Int32
 <a name="SharePointAuditOperations"> </a>
@@ -354,8 +384,11 @@ The Sway events listed in[Search the audit log in the Office 365 Protection Cent
 
  **Note**  * This operation is in Preview.
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ## SharePoint File Operations
 <a name="SPFileOperations"> </a>
@@ -375,7 +408,10 @@ The file-related SharePoint events listed in the "File and folder activities" se
 |DestinationFileExtension|Edm.String|No|The file extension of a file that is copied or moved. This property is displayed only for FileCopied and FileMoved events.|
 |UserSharedWith|Edm.String|No|The user that a resource was shared with.|
 |SharingType|Edm.String|No|The type of sharing permissions that were assigned to the user that the resource was shared with. This user is identified by the  _UserSharedWith_ parameter.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## SharePoint Sharing Schema
@@ -392,8 +428,11 @@ The file-related SharePoint events listed in the "File and folder activities" se
 |TargetUserOrGroupName |Edm.String|No|Stores the UPN or name of the target user or group that a resource was shared with.|
 |TargetUserOrGroupType|Edm.String|No|Identifies whether the target user or group is a Member, Guest, Group, or Partner. |
 |EventData|XML code|No|Conveys follow-up information about the sharing action that has occurred, such as adding a user to a group or granting edit permissions.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ## SharePoint Schema
 <a name="sp"> </a>
@@ -407,8 +446,11 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |CustomEvent|Edm.String|No|Optional string for custom events.|
 |EventData|Edm.String|No|Optional payload for custom events.|
 |ModifiedProperties|Collection(ModifiedProperty)|No|The property is included for admin events, such as adding a user as a member of a site or a site collection admin group. The property includes the name of the property that was modified (for example, the Site Admin group), the new value of the modified property (such the user who was added as a site admin), and the previous value of the modified object.|
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 ## Exchange Admin Schema
 <a name="ExchangeAdminSchema"> </a>
@@ -423,7 +465,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ExternalAccess|Edm.Boolean|Yes|Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value  **False** indicates that the cmdlet was run by someone in your organization. The value **True** indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator.|
 |OriginatingServer|Edm.String|No|The name of the server from which the cmdlet was executed.|
 |OrganizationName|Edm.String|No|The name of the tenant.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## Exchange Mailbox Schema
@@ -449,7 +494,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ClientMachineName|Edm.String|No|The machine name that hosts the Outlook client.|
 |ClientProcessName|Edm.String|No|The email client that was used to access the mailbox. |
 |ClientVersion|Edm.String|No|The version of the email client .|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### Enum: LogonType - Type: Edm.Int32
@@ -466,7 +514,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |4|SystemService|A service account in the Microsoft datacenter|
 |5|BestAccess|Reserved for internal use.|
 |6|DelegatedAdmin|A delegated administrator.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### ExchangeMailboxAuditGroupRecord schema
@@ -485,7 +536,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |DestFolder|Self.[ExchangeFolder](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#ExchangeFolderType)|No|The destination folder, for operations such as Move.|
 |Folders|Collection(Self.[ExchangeFolder](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#ExchangeFolderType))|No|Information about the source folders involved in an operation; for example, if folders are selected and then deleted.|
 |AffectedItems|Collection(Self.[ExchangeItem](75c668bf-d9aa-4cc1-8b51-ed7dbc2314bf.md#ExchangeItemType))|No|Information about each item in the group.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### ExchangeMailboxAuditRecord schema
@@ -501,7 +555,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |SendAsUserMailboxGuid|Edm.Guid|No|The Exchange GUID of the mailbox that was accessed to send email as.|
 |SendOnBehalfOfUserSmtp|Edm.String|No|SMTP address of the user on whose behalf the email is sent.|
 |SendonBehalfOfUserMailboxGuid|Edm.Guid|No|The Exchange GUID of the mailbox that was accessed to send mail on behalf of.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### ExchangeItem complex type
@@ -525,7 +582,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |:-----|:-----|:-----|:-----|
 |Id|Edm.String|Yes|The store ID of the folder object.|
 |Path|Edm.String|No|The name of the mailbox folder where the message that was accessed is located.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## Azure Active Directory Base Schema
@@ -560,7 +620,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |Client|Edm.String|No|Details about the client device, device OS, and device browser that was used for the of the account login event.|
 |LoginStatus|Edm.Int32|Yes|This property is from OrgIdLogon.LoginStatus directly. The mapping of various interesting logon failures could be done by alerting algorithms.|
 |UserDomain|Edm.String|Yes|The Tenant Identity Information (TII).|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### Enum: CredentialType - Type: Edm.Int32
@@ -590,7 +653,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |1|InitialAuth|Login with initial authentication|
 |2|CookieCopy|Login with cookie.|
 |3|SilentReAuth|Login with silent re-authentication.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ### Enum: AuthenticationMethod - Type: Edm.Int32
@@ -619,7 +685,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |17|SAML20PostSimpleSign|The authentication method is a SAML20PostSimpleSign.|
 |18|SAML20Post|The authentication method is a SAML20Post.|
 |19|OneTimeCode|The authentication method is a one-time code.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## Azure Active Directory Schema
@@ -663,7 +732,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |PUID|The audit action actor or the target passport unique ID (PUID).|
 |SPN|The identity of a service principal if the action is performed by the Office 365 service.|
 |UPN|The user principal name.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## Azure Active Directory STS Logon Schema
@@ -676,7 +748,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |ApplicationId|Edm.String|No|The GUID that represents the application that is requesting the login. The display name can be looked up via the Azure Active Directory Graph API.|
 |Client|Edm.String|No|Client device information, provided by the browser performing the login.|
 |LogonError|Edm.String|No|For failed logins, contains the reason why the login failed.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## Data Center Security Base Schema
@@ -696,7 +771,10 @@ The SharePoint events listed in t[Search the audit log in the Office 365 Protect
 |**Member name**|**Description**|
 |:-----|:-----|
 |DataCenterSecurityCmdletAuditEvent|This is the enum value for cmdlet audit type event.|
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50f4ef1fca73b95e6b9246f64d7bc9d8b00fdad1
 
 
 ## Data Center Security Cmdlet Schema

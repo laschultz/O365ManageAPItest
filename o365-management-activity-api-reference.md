@@ -2,11 +2,13 @@
 # Office 365 Management Activity API reference
 Use the Office 365 Management Activity API to retrieve information about user, admin, system, and policy actions and events from Office 365 and Azure AD activity logs. 
 
- **Last modified:** May 13, 2016
+ **Last modified:** June 2, 2016
+ 
+ _**Applies to:** Office 365_
 
- **In this article**
-[Working with the Office 365 Management Activity API](#sectionSection0)
-[Activity API operations](#sectionSection1)
+ **In this article**<br>
+[Working with the Office 365 Management Activity API](#sectionSection0)<br>
+[Activity API operations](#sectionSection1)<br>
 [Errors](#sectionSection2)
 
 
@@ -94,13 +96,11 @@ This operation starts a subscription to the specified content type. If a subscri
     
 - Remove a webhook.
     
-
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/start?contentType={ContentType}`||
 |**Parameters**|contentType|Must be a valid content type.|
-|**Body**|webhook|Optional JSON object with three properties:
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b> : Required HTTPS endpoint that can receive notifications.  A test message will be sent to the webhook to validate the webhook before creating the subscription.</p></li><li><p><b>authId</b> : Optional string that will be included as the WebHook-AuthID header in notifications sent to the webhook as a means of identifying and authorizing the source of the request to the webhook.</p></li><li><p><b>expiration</b> : Optional datetime that indicates a datetime after which notifications should no longer be sent to the webhook.</p></li></ul>|
+|**Body**|webhook|Optional JSON object with three properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b>: Required HTTPS endpoint that can receive notifications.  A test message will be sent to the webhook to validate the webhook before creating the subscription.</p></li><li><p><b>authId</b>: Optional string that will be included as the WebHook-AuthID header in notifications sent to the webhook as a means of identifying and authorizing the source of the request to the webhook.</p></li><li><p><b>expiration</b>: Optional datetime that indicates a datetime after which notifications should no longer be sent to the webhook.</p></li></ul>|
 |**Response**|contentType|The content type specified in the call.|
 ||status|The status of the subscription. If a subscription is disabled, you will not be able to list or retrieve content.|
 ||webhook|The webhook properties specified in the call together with the status of the webhook. If the webhook is disabled, you will not receive notification, but you will still be able to list and retrieve content, provided the subscription is enabled.|
@@ -191,7 +191,7 @@ This operation stops a subscription to the specified content type.
 When a subscription is stopped, you will no longer receive notifications and you will not be able to retrieve available content. If the subscription is later restarted, you will have access to new content from that point forward. You will not be able to retrieve content that was available between the time the subscription was stopped and restarted.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/stop?contentType={ContentType}`||
 |**Parameters**|contentType|Must be a valid content type.|
@@ -224,13 +224,12 @@ HTTP/1.1 200 OK
 This operation returns a collection of the current subscriptions together with the associated webhooks.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/list`||
 |**Parameters**|(none)||
 |**Body**|(empty)||
-|**Response**|JSON array|Each subscription will be represented by a JSON object with three properties:
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b> : Indicates the content type.</p></li><li><p><b>status</b> : Indicates the status of the subscription.</p></li><li><p><b>webhook</b> : Indicates the configured webhook, together with the status (enabled, disabled, expired) of the webhook.  If a subscription does not have a webhook, the webhook property will be present but with null value.</p></li></ul>|
+|**Response**|JSON array|Each subscription will be represented by a JSON object with three properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>: Indicates the content type.</p></li><li><p><b>status</b>: Indicates the status of the subscription.</p></li><li><p><b>webhook</b>: Indicates the configured webhook, together with the status (enabled, disabled, expired) of the webhook.  If a subscription does not have a webhook, the webhook property will be present but with null value.</p></li></ul>|
 The following is an example of a request.
 
 
@@ -280,14 +279,12 @@ Content-Type: application/json; charset=utf-8
 This operation lists the content currently available for retrieval for the specified content type. The content is an aggregation of actions and events harvested from multiple servers across multiple datacenters. The content will be listed in the order in which the aggregations become available, but the events and actions within the aggregations are not guaranteed to be sequential. An error is returned if the subscription status is disabled.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/content?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**Parameters**|contentType|Must be a valid content type.|
-||startTimeendTime|Optional datetimes (UTC) indicating the time range of content to return, based on when the content became available. The time range is inclusive with respect to startTime (startTime <= contentCreated) and exclusive with respect to endTime (contentCreated < endTime), so that non-overlapping, incrementing time intervals can used to page through available content.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDTHH:MM:SS</p></li></ul>Both must be specified (or both omitted) and they must be no more than 24 hours apart, with the start time no more than 7 days in the past. By default, if startTime and endTime are omitted, then the content available in the last 24 hours is returned.|
-|**Response**|JSON array|The available content will be represented by JSON objects with the following properties:
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b> : Indicates the content type.</p></li><li><p><b>contentId</b> : An opaque string that uniquely identifies the content.</p></li><li><p><b>contentUri</b> : The URL to use when retrieving the content.</p></li><li><p><b>contentCreated</b> : The datetime when the content was made available.</p></li><li><p><b>contentExpiration</b> : The datetime after which the content will no longer be available for retrieval.</p></li></ul>|
+||startTimeendTime|Optional datetimes (UTC) indicating the time range of content to return, based on when the content became available. The time range is inclusive with respect to startTime (startTime <= contentCreated) and exclusive with respect to endTime (contentCreated < endTime), so that non-overlapping, incrementing time intervals can used to page through available content.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDTHH:MM:SS</p></li></ul>Both must be specified (or both omitted) and they must be no more than 24 hours apart, with the start time no more than 7 days in the past. By default, if startTime and endTime are omitted, then the content available in the last 24 hours is returned.|
+|**Response**|JSON array|The available content will be represented by JSON objects with the following properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>: Indicates the content type.</p></li><li><p><b>contentId</b>: An opaque string that uniquely identifies the content.</p></li><li><p><b>contentUri</b>: The URL to use when retrieving the content.</p></li><li><p><b>contentCreated</b>: The datetime when the content was made available.</p></li><li><p><b>contentExpiration</b>: The datetime after which the content will no longer be available for retrieval.</p></li></ul>|
 The following is an example of a request.
 
 
@@ -513,12 +510,11 @@ Content-Type: application/json; charset=utf-8
 This operation lists all notification attempts for the specified content type. If you did not include a webhook when starting the subscription to the content type, there will be no notifications to retrieve. Because we retry notifications in the event of failure, this operation can return multiple notifications for the same content, and the order in which the notifications are sent will not necessarily match the order in which the content became available (especially when there are failures and retries). You can use this operation to help investigate issues related to webhooks and notifications, but you should not use it to determine what content is currently available for retrieval. Use the /content operation instead. We return an error if the subscription status is disabled.
 
 
-||||
+||**Subscription**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/subscriptions/notifications?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**Parameters**|contentType|Must be a valid content type.|
-||startTimeendTime|Optional datetimes (UTC) that indicate the time range of content to return, based on when the content became available. The time range is inclusive with respect to  _startTime_ ( _startTime_ <= contentCreated) and exclusive with respect to _endTime_ ( _contentCreated_ < endTime), so that non-overlapping, incrementing time intervals can used to page through available content.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDTHH:MM:SS</p></li></ul>Both must be specified (or both omitted) and they must be no more than 24 hours apart, with the start time no more than 7 days in the past. By default, if  _startTime_ and _endTime_ are omitted, the content available in the last 24 hours is returned.|
+||startTimeendTime|Optional datetimes (UTC) that indicate the time range of content to return, based on when the content became available. The time range is inclusive with respect to  _startTime_ ( _startTime_ <= contentCreated) and exclusive with respect to _endTime_ ( _contentCreated_ < endTime), so that non-overlapping, incrementing time intervals can used to page through available content.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDTHH:MM:SS</p></li></ul>Both must be specified (or both omitted) and they must be no more than 24 hours apart, with the start time no more than 7 days in the past. By default, if  _startTime_ and _endTime_ are omitted, the content available in the last 24 hours is returned.|
 |**Response**|JSON array|The notifications will be represented by JSON objects with the following properties: **contentType**: indicates the content type. **contentId**: an opaque string that uniquely identifies the content. **contentUri**: the URL to use when retrieving the content. **contentCreated**: the datetime when the content was made available. **contentExpiration**: the datetime after which the content will no longer be available for retrieval. **notificationSent**: the datetime when the notification was sent. **notificationStatus**: indicates the success or failure of the notification attempt.|
 The following is an example of a request.
 
@@ -593,35 +589,21 @@ When the service encounters an error, it will report the error response code to 
 |||
 |:-----|:-----|
 |**Code**|**Message**|
-|AF10001|The permission set ({0}) sent in the request did not include the expected permission  **ActivityFeed.Read**.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the permission set in the access token.</p></li></ul>|
-|AF20001|Missing parameter: {0}. 
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the name of the missing parameter.</p></li></ul>|
-|AF20002|Invalid parameter type: {0}. Expected type: {1}
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the name of the invalid parameter.</p></li><li><p>{1} = the expected type (int, datetime, guid).</p></li></ul>|
-|AF20003|Expiration {0} provided is set to past date and time.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the expiration passed in the API call.</p></li></ul>|
-|AF20010|The tenant ID passed in the URL ({0}) does not match the tenant ID passed in the access token ({1}).
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = tenant ID passed in the URL</p></li><li><p>{1} = tenant ID passed in the access token</p></li></ul>|
-|AF20011|Specified tenant ID ({0}) does not exist in the system or has been deleted. 
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>	{0} = tenant ID passed in the URL</p></li></ul>|
-|AF20012|Specified tenant ID ({0}) is incorrectly configured in the system. 
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>	{0} = tenant ID passed in the URL</p></li></ul>|
-|AF20013|The tenant ID passed in the URL ({0}) is not a valid GUID.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>	{0} = tenant ID passed in the URL</p></li></ul>|
+|AF10001|The permission set ({0}) sent in the request did not include the expected permission  **ActivityFeed.Read**.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the permission set in the access token.</p></li></ul>|
+|AF20001|Missing parameter: {0}. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the name of the missing parameter.</p></li></ul>|
+|AF20002|Invalid parameter type: {0}. Expected type: {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the name of the invalid parameter.</p></li><li><p>{1} = the expected type (int, datetime, guid).</p></li></ul>|
+|AF20003|Expiration {0} provided is set to past date and time.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the expiration passed in the API call.</p></li></ul>|
+|AF20010|The tenant ID passed in the URL ({0}) does not match the tenant ID passed in the access token ({1}).<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = tenant ID passed in the URL</p></li><li><p>{1} = tenant ID passed in the access token</p></li></ul>|
+|AF20011|Specified tenant ID ({0}) does not exist in the system or has been deleted. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>	{0} = tenant ID passed in the URL</p></li></ul>|
+|AF20012|Specified tenant ID ({0}) is incorrectly configured in the system. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>	{0} = tenant ID passed in the URL</p></li></ul>|
+|AF20013|The tenant ID passed in the URL ({0}) is not a valid GUID.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>	{0} = tenant ID passed in the URL</p></li></ul>|
 |AF20020|The specified content type is not valid.|
-|AF20021|The webhook endpoint {{0}) could not be validated. {1}
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = webhook address.</p></li><li><p>{1} = "The endpoint did not return HTTP 200." or "The address must begin with HTTPS."</p></li></ul>|
+|AF20021|The webhook endpoint {{0}) could not be validated. {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = webhook address.</p></li><li><p>{1} = "The endpoint did not return HTTP 200." or "The address must begin with HTTPS."</p></li></ul>|
 |AF20022|No subscription found for the specified content type.|
-|AF20023|The subscription was disabled by {0}.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = "a tenant admin" or "a service admin"</p></li></ul>|
+|AF20023|The subscription was disabled by {0}.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = "a tenant admin" or "a service admin"</p></li></ul>|
 |AF20030|Start time and end time must both be specified (or both omitted) and must be less than or equal to 24 hours apart, with the start time no more than 7 days in the past.|
-|AF20031|Invalid nextPage Input: {0}.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the next page indicator passed in the URL</p></li></ul>|
-|AF20050|The specified content ({0}) does not exist.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = resource id or resource URL</p></li></ul>|
-|AF20051|Content requested with the key {0} has already expired. Content older than 7 days cannot be retrieved.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>•	{0} = resource id or resource URL</p></li></ul>|
-|AF20052|Content ID {0} in the URL is invalid.
-<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = resource id or resource URL</p></li></ul>|
+|AF20031|Invalid nextPage Input: {0}.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the next page indicator passed in the URL</p></li></ul>|
+|AF20050|The specified content ({0}) does not exist.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = resource id or resource URL</p></li></ul>|
+|AF20051|Content requested with the key {0} has already expired. Content older than 7 days cannot be retrieved.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>•	{0} = resource id or resource URL</p></li></ul>|
+|AF20052|Content ID {0} in the URL is invalid.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = resource id or resource URL</p></li></ul>|
 |AF50000|An internal error occurred. Retry the request.|

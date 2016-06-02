@@ -1,9 +1,9 @@
 
 # Office 365 Service Communications API reference (preview)
 
- **Last modified:** September 09, 2015
+ **Last modified:** June 2, 2016
 
- _ **Applies to:** Office 365_
+ _**Applies to:** Office 365_
 
  **Note**  This documentation covers features that are currently in preview. For information about working with preview features, see [Preview developer features on the Office 365 platform](https://msdn.microsoft.com/en-us/office/office365/howto/platform-development-preview-features-overview).
 
@@ -82,7 +82,7 @@ These are the response headers returned for all Office 365 Service Communication
 Returns the list of subscribed services.
 
 
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/Services`||
 |**Query-option**|$select|Pick a subset of properties.|
@@ -146,8 +146,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 Returns the current status of the service.
 
-
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/CurrentStatus`||
 |**Filter**|Workload|Filter by workload (String, default: all).|
@@ -279,8 +278,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 Returns the historical status of the service, by day, over a certain time range.
 
-
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/HistoricalStatus`||
 |**Filters**|Workload|Filter by workload (String, default: all).|
@@ -391,8 +389,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 Returns the messages about the service over a certain time range. Use the type filter to filter for "Service Incident", "Planned Maintenance", or "Message Center" messages.
 
-
-||||
+||**Service**|**Description**|
 |:-----|:-----|:-----|
 |**Path**| `/Messages`||
 |**Filters**|Workload|Filter by workload (String, default: all).|
@@ -482,7 +479,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 ### Errors
 <a name="GetMessages"> </a>
 
-When the service encounters an error, it reports the error response code to the caller, using standard HTTP error-code syntax. As per [OData V4 specification](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.mdl), additional information is included in the body of the failed call as a single JSON object. The following is an example of a full JSON error body:
+When the service encounters an error, it reports the error response code to the caller, using standard HTTP error-code syntax. As per [OData V4 specification](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html), additional information is included in the body of the failed call as a single JSON object. The following is an example of a full JSON error body:
 
 
 ```
