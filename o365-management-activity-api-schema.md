@@ -2,23 +2,25 @@
 # Office 365 Management Activity API schema
 
 
- **Last modified:** May 26, 2016
+ **Last modified:** June 2, 2016
+ 
+ _**Applies to: Office 365**_
 
- **In this article**
-[Office 365 Management API schemas](#top)
-[Common Schema](#common)
-[Sway Schema](#sway)
-[SharePoint Base Schema](#spbase)
-[SharePoint File Operations](#SPFileOperations)
-[SharePoint Sharing Schema](#SPShare)
-[SharePoint Schema](#sp)
-[Exchange Admin Schema](#ExchangeAdminSchema)
-[Exchange Mailbox Schema](#ExchangeMailboxSchema)
-[Azure Active Directory Base Schema](#AzureActiveDirectoryBaseSchema)
-[Azure Active Directory Account Logon Schema](#AzureActiveDirectoryAccountLogonSchema)
-[Azure Active Directory Schema](#AzureActiveDirectorySchema)
-[Azure Active Directory STS Logon Schema](#AzureActiveDirectorySTSSchema)
-[Data Center Security Base Schema](#DataCenterSecurityBaseSchema)
+ **In this article**<br>
+[Office 365 Management API schemas](#top)<br>
+[Common Schema](#common)<br>
+[Sway Schema](#sway)<br>
+[SharePoint Base Schema](#spbase)<br>
+[SharePoint File Operations](#SPFileOperations)<br>
+[SharePoint Sharing Schema](#SPShare)<br>
+[SharePoint Schema](#sp)<br>
+[Exchange Admin Schema](#ExchangeAdminSchema)<br>
+[Exchange Mailbox Schema](#ExchangeMailboxSchema)<br>
+[Azure Active Directory Base Schema](#AzureActiveDirectoryBaseSchema)<br>
+[Azure Active Directory Account Logon Schema](#AzureActiveDirectoryAccountLogonSchema)<br>
+[Azure Active Directory Schema](#AzureActiveDirectorySchema)<br>
+[Azure Active Directory STS Logon Schema](#AzureActiveDirectorySTSSchema)<br>
+[Data Center Security Base Schema](#DataCenterSecurityBaseSchema)<br>
 [Data Center Security Cmdlet Schema](#DataCenterSecurityCmdletSchema)
 
 
